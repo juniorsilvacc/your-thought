@@ -6,6 +6,6 @@ module.exports = {
   database: "toughts_db",
   define: {
     timestamps: true,
-    underscores: true,
+    underscored: true,
   },
 };

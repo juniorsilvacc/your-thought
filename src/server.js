@@ -3,10 +3,11 @@ const exphbs = require("express-handlebars");
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 const flash = require("express-flash");
-
-const app = express();
+const routes = require("./routes/routes");
 
 require("./database");
+
+const app = express();
 
 // Template engine
 app.engine(
@@ -57,5 +58,8 @@ app.use((req, res, next) => {
 
   next();
 });
+
+// Rotas
+app.use(routes);
 
 app.listen(3333);
