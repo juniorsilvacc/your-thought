@@ -11,6 +11,10 @@ class Tought extends Model {
       }
     );
   }
+
+  static associate(models) {
+    this.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
+  }
 }
 
 module.exports = Tought;

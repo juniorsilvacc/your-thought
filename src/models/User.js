@@ -13,6 +13,10 @@ class User extends Model {
       }
     );
   }
+
+  static associate(models) {
+    this.hasMany(models.Tought, { foreignKey: "id", as: "tought" });
+  }
 }
 
 module.exports = User;
