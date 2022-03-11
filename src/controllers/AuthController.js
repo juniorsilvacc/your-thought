@@ -19,7 +19,7 @@ module.exports = {
       return;
     }
 
-    const checkIfUserExists = await User.findOne({ email });
+    const checkIfUserExists = await User.findOne({ where: { email } });
 
     if (checkIfUserExists) {
       req.flash("message", "E-mail já cadastrado, tente novamente.");
@@ -52,5 +52,10 @@ module.exports = {
     }
 
     return;
+  },
+
+  logout(req, res) {
+    req.session.destroy();
+    res.redirect("/login");
   },
 };
