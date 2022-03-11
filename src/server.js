@@ -1,20 +1,20 @@
 const express = require("express");
-const exphbs = require("express-handlebars");
+const handlebars = require("express-handlebars");
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 const flash = require("express-flash");
-const routes = require("./routes/routes");
+
+const toughtsRoutes = require("./routes/toughts.routes");
+const ToughtController = require("./controllers/ToughtController");
 
 require("./database");
 
 const app = express();
 
 // Template engine
-app.engine(
-  "handlebars",
-  exphbs.engine({ extname: ".hbs", defaultLayout: "main" })
-);
+app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
+app.set("views", "./src/views");
 
 // Receber respostas do body
 app.use(
@@ -48,7 +48,7 @@ app.use(
 app.use(flash());
 
 // Public path
-app.use(express.static("public"));
+app.use(express.static("src/public"));
 
 // Set session to res
 app.use((req, res, next) => {
@@ -60,6 +60,9 @@ app.use((req, res, next) => {
 });
 
 // Rotas
-app.use(routes);
+app.use("/toughts", toughtsRoutes);
 
+app.get("/", ToughtController.showToughts);
+
+// Servidor
 app.listen(3333);
