@@ -19,12 +19,6 @@ module.exports = {
       return;
     }
 
-    if (password > 6) {
-      req.flash("message", "A senha precisa ter no mínimo 6 caractere.");
-      res.render("auth/register");
-      return;
-    }
-
     const checkIfUserExists = await User.findOne({ email });
 
     if (checkIfUserExists) {
@@ -44,9 +38,15 @@ module.exports = {
     };
 
     try {
-      await User.create(user);
+      const createdUserId = await User.create(user);
+
+      req.session.userid = createdUserId.id;
+
       req.flash("message-success", "Cadastro realizado com sucesso.");
-      res.render("auth/login");
+
+      req.session.save(() => {
+        res.redirect("/");
+      });
     } catch (err) {
       console.log(err);
     }
