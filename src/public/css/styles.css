@@ -8,6 +8,29 @@
   color: #fff;
 }
 
+/* Messages Flash */
+.message {
+  margin: 0 auto;
+  padding: 0.4em;
+  color: red;
+  text-align: center;
+  background-color: #f88f89;
+  border: 1px solid red;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.message-success {
+  margin: 0 auto;
+  padding: 0.4em;
+  color: green;
+  text-align: center;
+  background-color: #ecf081;
+  border: 1px solid green;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
 /* Header */
 
 #logo img {
@@ -59,7 +82,7 @@
 }
 
 .auth-container h2 {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   color: #fff;
   border-left: 4px solid #f6982d;
   padding: 0.3em;
