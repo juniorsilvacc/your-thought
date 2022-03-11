@@ -5,6 +5,7 @@ const fileStore = require("session-file-store")(session);
 const flash = require("express-flash");
 
 const toughtsRoutes = require("./routes/toughts.routes");
+const authRoutes = require("./routes/auth.routes");
 const ToughtController = require("./controllers/ToughtController");
 
 require("./database");
@@ -61,7 +62,7 @@ app.use((req, res, next) => {
 
 // Rotas
 app.use("/toughts", toughtsRoutes);
-
+app.use("/", authRoutes);
 app.get("/", ToughtController.showToughts);
 
 // Servidor
