@@ -6,6 +6,40 @@ module.exports = {
     res.render("auth/login");
   },
 
+  async loginPost(req, res) {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) {
+      req.flash("message", "E-mail e/ou senha incorreto.");
+      res.render("auth/login");
+      return;
+    }
+
+    const passwordMatch = bcrypt.compareSync(password, user.password);
+
+    if (!passwordMatch) {
+      req.flash("message", "E-mail e/ou senha incorreto.");
+      res.render("auth/login");
+      return;
+    }
+
+    try {
+      req.session.userid = user.id;
+
+      req.flash("message-success", "Autenticação realizado com sucesso.");
+
+      req.session.save(() => {
+        res.redirect("/");
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    return;
+  },
+
   register(req, res) {
     res.render("auth/register");
   },
