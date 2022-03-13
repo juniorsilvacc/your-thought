@@ -8,6 +8,27 @@
   color: #fff;
 }
 
+.btn-dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #f6982d;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  margin: 20px 0 20px 0;
+  transition: 0.5s;
+}
+
+.btn-dashboard:hover {
+  background-color: #f6982d;
+  color: #fff;
+}
+
 /* Messages Flash */
 .message {
   margin: 0 auto;
