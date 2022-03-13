@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   login(req, res) {
@@ -27,6 +28,14 @@ module.exports = {
 
     try {
       req.session.userid = user.id;
+
+      const token = jwt.sign(
+        { id: user.id },
+        "cT8pk904ZjwbrMzb7Z0Fm1ol4xVOHFj3",
+        {
+          expiresIn: 3000,
+        }
+      );
 
       req.flash("message-success", "Autenticação realizado com sucesso.");
 
