@@ -5,6 +5,7 @@ class Tought extends Model {
     super.init(
       {
         title: DataTypes.STRING,
+        user_id: DataTypes.NUMBER,
       },
       {
         sequelize,
