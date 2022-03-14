@@ -1,21 +1,21 @@
-const { Model, DataTypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 
-class Tought extends Model {
-  static init(sequelize) {
-    super.init(
-      {
-        title: DataTypes.STRING,
-        user_id: DataTypes.NUMBER,
-      },
-      {
-        sequelize,
-      }
-    );
-  }
+const db = require("../database/index");
 
-  static associate(models) {
-    this.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
-  }
-}
+const User = require("../models/User");
+
+const Tought = db.define("Tought", {
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  user_id: {
+    type: DataTypes.NUMBER,
+    allowNull: false,
+  },
+});
+
+Tought.belongsTo(User);
+User.hasMany(Tought);
 
 module.exports = Tought;

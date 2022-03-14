@@ -13,7 +13,28 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #f6982d;
-  width: 200px;
+  width: 180px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #f6982d;
+  font-weight: bold;
+  margin: 20px 0 20px 0;
+  transition: 0.5s;
+}
+
+.btn-dashboard:hover {
+  background-color: #f6982d;
+  color: #fff;
+}
+
+.btn-dashboard-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  width: 180px;
   height: 40px;
   text-align: center;
   text-decoration: none;
@@ -24,7 +45,7 @@
   transition: 0.5s;
 }
 
-.btn-dashboard:hover {
+.btn-dashboard-action:hover {
   background-color: #f6982d;
   color: #fff;
 }
@@ -157,6 +178,47 @@ form input[type="submit"]:hover,
 .btn:hover {
   background-color: #f6982d;
   color: #fff;
+}
+
+/* Dashboard */
+.dashboard h2 {
+  margin-bottom: 1.5em;
+  color: #fff;
+  border-left: 4px solid #f6982d;
+  padding: 0.3em;
+  width: 100px;
+}
+
+.dashboard h3 {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard ul {
+  list-style: none;
+}
+
+.dashboard li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f6982d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard .label {
+  font-weight: bold;
+  color: #f6982d;
 }
 
 /* Footer */
