@@ -219,6 +219,13 @@ form input[type="submit"]:hover,
 .dashboard .label {
   font-weight: bold;
   color: #f6982d;
+  font-size: 22px;
+}
+
+.label-date {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 400;
 }
 
 /* Footer */
