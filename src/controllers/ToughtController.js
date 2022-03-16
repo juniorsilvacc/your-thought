@@ -46,4 +46,21 @@ module.exports = {
       console.log(err);
     }
   },
+
+  async removeTought(req, res) {
+    const id = req.body.id;
+    const UserId = req.session.userid;
+
+    try {
+      await Tought.destroy({ where: { id, UserId } });
+
+      req.flash("message-success", "Pensamento removido com sucesso!");
+
+      req.session.save(() => {
+        res.redirect("/toughts/dashboard");
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

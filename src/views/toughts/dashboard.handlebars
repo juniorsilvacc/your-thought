@@ -16,12 +16,18 @@
          
           <a href="/" class="btn-dashboard">Editar</a>
 
-          <form action="/">
+          <form action="/toughts/remove" method="post">
             <input type="hidden" name="id" value="{{this.id}}">
-            <input type="submit" value="Excluir">
+            <input type="submit" value="Excluir" onclick="funcao1()">
           </form>
         </span>
       </li>
     {{/each}}
   </ul>
 </div>
+
+<script>
+  function funcao1(){
+    alert("Deseja remover esse pensamento? ");
+  }
+</script>
