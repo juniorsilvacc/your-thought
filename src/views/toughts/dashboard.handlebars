@@ -24,6 +24,10 @@
       </li>
     {{/each}}
   </ul>
+
+  {{#if emptyToughts}}
+    <p>Ainda não há nenhum pensamento seu, comece por <a href="/toughts/add" class="button-now">AQUI.</a></p> 
+  {{/if}}
 </div>
 
 <script>

@@ -21,7 +21,13 @@ module.exports = {
 
     const toughts = user.Toughts.map((result) => result.dataValues);
 
-    res.render("toughts/dashboard", { toughts });
+    let emptyToughts = false;
+
+    if (toughts.length === 0) {
+      emptyToughts = true;
+    }
+
+    res.render("toughts/dashboard", { toughts, emptyToughts });
   },
 
   createTought(req, res) {
