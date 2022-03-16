@@ -12,6 +12,9 @@ routes.post("/add", checkAuth, ToughtController.createToughtSave);
 
 routes.post("/remove", checkAuth, ToughtController.removeTought);
 
+routes.get("/edit/:id", checkAuth, ToughtController.updateTought);
+routes.post("/edit", checkAuth, ToughtController.updateToughtSave);
+
 routes.get("/", ToughtController.showToughts);
 
 module.exports = routes;
