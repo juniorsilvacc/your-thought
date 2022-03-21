@@ -2,8 +2,14 @@ const Tought = require("../models/Tought");
 const User = require("../models/User");
 
 module.exports = {
-  showToughts(req, res) {
-    res.render("toughts/home");
+  async showToughts(req, res) {
+    const toughtsData = await Tought.findAll({
+      include: User,
+    });
+
+    const toughts = toughtsData.map((result) => result.get({ plain: true }));
+
+    res.render("toughts/home", { toughts });
   },
 
   async dashboard(req, res) {

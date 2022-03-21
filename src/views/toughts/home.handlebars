@@ -1,3 +1,39 @@
-<div class="container"> 
+<div class="home-header"> 
   <h1>Todos os pensamentos</h1>
+
+  <form action="/" method="GET">
+    <input type="text" name="search" placeholder="Deseja buscar algum pensamento?">
+    <input type="submit" class="btn" value="Buscar">
+  </form>
+
+  <div class="order-container">
+    <span>Ordernar por:</span>
+    <form action="/" method="GET">
+      <input type="hidden" name="search" value="{{this.search}}">
+      <input type="hidden" name="search" value="new">
+      <button type="submit">Novos</button>
+    </form>
+
+    <form action="/" method="GET">
+      <input type="hidden" name="search" value="{{this.search}}">
+      <input type="hidden" name="search" value="old">
+      <button type="submit">Antigos</button>
+    </form>
+
+    <a href="/">Limpar</a>
+
+    </div>
+
+    <div>
+      {{#each toughts}}
+        <figure>
+          <blockquote>
+            "{{this.title}}"
+          </blockquote>
+          <figcaption>Criado por: <span>{{this.User.name}}</span> </figcaption>
+        </figure>
+      {{/each}}
+    </div>
 </div>
+
+  
